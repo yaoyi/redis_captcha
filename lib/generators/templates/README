@@ -1,0 +1,29 @@
+===============================================================================
+
+1. Setup "config/initializers/redis_captcha.rb"
+
+2. Mount RedisCaptcha::Engine in your router.rb
+
+   mount RedisCaptcha::Engine => '/captcha', :as => :captcha
+
+3. Add to your controller
+
+   before_filter :generate_captcha_key
+
+4. Add to your model
+
+   include RedisCaptcha::Model
+
+5. If you set "config.active_record.whitelist_attributes = true" in "config/application.rb", remember to add attr_accessible to your model
+
+   attr_accessible :captcha, :captcha_key
+
+6. Add to your view
+
+<%= image_tag(captcha_path(:timestamp => Time.now.to_i), :alt => "captcha") %>
+<%= f.text_field :captcha %>
+<%= f.hidden_field :captcha_key, :value => session[:captcha_key] %>
+
+Enjoy it :)
+
+===============================================================================

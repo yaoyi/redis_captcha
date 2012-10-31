@@ -60,7 +60,7 @@ class Post < ActiveRecord::Base
 end
 ```
 
-if you set `config.active_record.whitelist_attributes = true` in `config/application.rb`, remember to add:
+if you set `config.active_record.whitelist_attributes = true` in `config/application.rb`, remember to add attr_accessible to your model:
 
 ```ruby
 attr_accessible :captcha, :captcha_key
@@ -71,17 +71,14 @@ to your model.
 **5. Use RedisCaptcha in your view**
 
 ```erb
-
 <%= image_tag(captcha_path(:timestamp => Time.now.to_i), :alt => "captcha") %>
 <%= f.text_field :captcha %>
 <%= f.hidden_field :captcha_key, :value => session[:captcha_key] %>
-
 ```
 
 **6. Use RedisCaptcha in your controller**
 
 ```ruby
-
     # Initialize a post
     @post = Post.new(:title => "test")
 

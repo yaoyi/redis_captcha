@@ -98,6 +98,14 @@ to your model.
 
 Enjoy it!
 
+## Preview
+
+![Alt text](http://blog.hellolucky.info/wp-content/uploads/2012/11/redis_captcha-1.png)
+
+![Alt text](http://blog.hellolucky.info/wp-content/uploads/2012/11/redis_captcha1.png)
+
+![Alt text](http://blog.hellolucky.info/wp-content/uploads/2012/11/redis_captcha-2.png)
+
 ## Todo list
 
 * To add a simple site
